@@ -30,8 +30,8 @@ function setup() {
 
 function draw() {
   
-    background(random(130));
-  
+    // background(random(90,200),0,random(90));
+  background(random(90,200));
     let scaleOsc = map(sin(angle2),-1,1,3,15);
 
     scale(scaleOsc);
@@ -74,7 +74,7 @@ let Circle = function(x, y, size) {
     this.color = [random(255),0,random(0),random(160,180)];
     
     this.display = function() {
-        strokeWeight(4);
+        strokeWeight(random(-2,7));
         //noStroke();
         fill(this.color);
         ellipse(this.x, this.y, this.size); 
