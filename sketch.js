@@ -7,6 +7,7 @@ let inc = 0.05;
 let circles = [];
 let numCircles = 600;
 let osc =1;
+let scaler = 14;
 // let scroll=0.1;
 
 function setup() {
@@ -19,7 +20,8 @@ function setup() {
     }
 
 
-// setInterval(initCircles,3000);
+ setInterval(randomAngle,3000);
+ setInterval(randomScale,300);
 
 
 }
@@ -29,7 +31,7 @@ function draw() {
     background(random(130));
   
     // scale(14-(inc*10000);
-    scale(14);
+    scale(scaler);
     translate(50,-200);
     rotate(angle/100000);
         for(let i = 0; i < numCircles; i++) {
@@ -93,9 +95,17 @@ let Circle = function(x, y, size) {
 
 
 
+function randomAngle() {
+    angle = random(10000);
+}
+
+function randomScale() {
+    scaler = random(3,16);
+}
+
 function initCircles() {
         for(let i = 0; i < numCircles; i++) {
-        circles = new Circle( i*10 +200 + i*random(20),0,random(size));
+        circles[i] = new Circle( i*3-100,-100,size);
     }
 }
 
