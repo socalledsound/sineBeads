@@ -10,7 +10,7 @@ let osc =1;
 // let scroll=0.1;
 
 function setup() {
-    createCanvas(1500,800);
+    createCanvas(1000,800);
      frameRate(10);
  
         for(let i = 0; i < numCircles; i++) {
@@ -65,10 +65,11 @@ let Circle = function(x, y, size) {
     this.x = x;
     this.y = y;
     this.size = size;
-    this.color = [random(255),0,random(0),random(100)];
+    this.color = [random(255),0,random(0),random(200,255)];
     
     this.display = function() {
-        strokeWeight(6);
+        strokeWeight(1);
+        noStroke();
         fill(this.color);
         ellipse(this.x, this.y, this.size); 
     }
@@ -79,7 +80,7 @@ let Circle = function(x, y, size) {
          // this.x = this.x+0.1;
         let phi = 0.6 * PI * sin(3 * angle);
 
-       let sizeOsc = map(tan(angle/2)*2*sin(osc*3),-1,1,0,random(100));
+       let sizeOsc = map(tan(angle/2)*2*sin(osc*3),-1,1,0,random(180));
         this.size = sizeOsc/100;
         this.y = this.y/8+osc/2+100+cos(phi)*sin(2*angle);
         this.x = this.y/8*this.size/10 * cos(phi) * cos(2*angle);
