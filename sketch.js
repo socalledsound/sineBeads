@@ -30,7 +30,7 @@ function draw() {
   
     scale(0.9);
     //translate(500,500);
-   // rotate(angle/100);
+    rotate(angle/10000);
         for(let i = 0; i < numCircles; i++) {
      
         osc = map(sin(angle),-1,1,0,height);  
@@ -39,7 +39,15 @@ function draw() {
         circles[i].update(osc);             
         circles[i].display();
 
-        angle+=inc;
+
+        console.log(angle);    
+        if (angle < 5000) {
+        angle+=inc;    
+        }
+        else {
+            angle = 0;
+        }
+        
     }
     
 
@@ -66,7 +74,7 @@ let Circle = function(x, y, size) {
     
     this.update = function(osc, scroll) {
 //        console.log(mult);
-        console.log(this.y);
+        // console.log(this.y);
          // this.x = this.x+0.1;
        let sizeOsc = map(tan(angle/2)*sin(osc),-1,1,0,100);
         this.size = sizeOsc/10;
