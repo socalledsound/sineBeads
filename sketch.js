@@ -74,7 +74,7 @@ let Circle = function(x, y, size) {
     this.color = [random(255),0,random(0),random(160,180)];
     
     this.display = function() {
-        strokeWeight(random(-2,7));
+        strokeWeight(random(0,3));
         //noStroke();
         fill(this.color);
         ellipse(this.x, this.y, this.size); 
@@ -85,8 +85,8 @@ let Circle = function(x, y, size) {
         // console.log(this.y);
          // this.x = this.x+0.1;
         let phi = 0.6 * PI * sin(3 * angle);
-
-       let sizeOsc = map(tan(angle/2)*2*sin(osc*3),-1,1,0,random(400));
+let scaleOscInner = map(sin(angle2),-1,1,3,8);
+       let sizeOsc = map(tan(angle/2)*2*sin(osc*3),-1,1,0,random(100)*scaleOscInner);
         this.size = sizeOsc/100;
         this.y = this.y/8+osc/2+100+cos(phi)*sin(2*angle);
         this.x = this.y/8*this.size/10 * cos(phi) * cos(2*angle);
