@@ -3,7 +3,9 @@ let y = 400;
 let size=30;
 let opacity =255;
 let angle = 0;
+let angle2 = 0;
 let inc = 0.05;
+let inc2 = 0.1;
 let circles = [];
 let numCircles = 600;
 let osc =1;
@@ -20,8 +22,8 @@ function setup() {
     }
 
 
- setInterval(randomAngle,3000);
- setInterval(randomScale,300);
+ // setInterval(randomAngle,3000);
+ // setInterval(randomScale,300);
 
 
 }
@@ -30,8 +32,9 @@ function draw() {
   
     background(random(130));
   
-    // scale(14-(inc*10000);
-    scale(scaler);
+    let scaleOsc = map(sin(angle2),-1,1,3,15);
+
+    scale(scaleOsc);
     translate(50,-200);
     rotate(angle/100000);
         for(let i = 0; i < numCircles; i++) {
@@ -53,7 +56,7 @@ function draw() {
         
     }
     
-
+    angle2+=inc2;
    // scroll+=0.01; 
     
 
