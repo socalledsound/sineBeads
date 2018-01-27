@@ -14,7 +14,7 @@ let scaler = 14;
 
 function setup() {
     createCanvas(1000,800);
-     frameRate(10);
+     frameRate(8);
  
         for(let i = 0; i < numCircles; i++) {
         circles[i] = new Circle( i*3-100,-100,size);
@@ -25,6 +25,7 @@ function setup() {
  // setInterval(randomAngle,3000);
  // setInterval(randomScale,300);
 
+setInterval(drawBlack,300);
 
 }
 
@@ -60,7 +61,7 @@ function draw() {
    // scroll+=0.01; 
     
 
-    
+    drawBlack();
  
    
 }
@@ -96,7 +97,12 @@ let scaleOscInner = map(sin(angle2),-1,1,3,8);
     
 }
 
+function drawBlack(){
+    fill(0);
+    rect(20,0,2000,2000);
 
+    // rect(50,0,2000,2000);
+}
 
 function randomAngle() {
     angle = random(10000);
